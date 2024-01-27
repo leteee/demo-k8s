@@ -1,7 +1,7 @@
 ### 配置网络
 ```shell
-vim /etc/sysconfig/network-scripts/ifcfg-ens33
-service network restart
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+systemctl restart network
 ping -c4 www.baidu.com
 ```
 > BOOTPROTO=static  

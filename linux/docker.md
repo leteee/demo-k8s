@@ -2,7 +2,7 @@
 #### 卸载旧版[参考](https://docs.docker.com/engine/install/centos/)
 ```shell
 #卸载旧版
- sudo yum remove docker \
+sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
                   docker-common \
