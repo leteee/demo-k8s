@@ -14,12 +14,12 @@ ping -c4 www.baidu.com
 
 ### 配置sudo
 ```shell
-#修改文件
+# 修改文件
 vi /etc/sudoers
-#文件内容
+# 文件内容
 light  ALL=(ALL) NOPASSWD:ALL
 light ALL=(ALL) NOPASSWD:/usr/bin/du,/usr/bin/ping
-#一行命令
+# 一行命令
 echo "light  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/username
 ```
 

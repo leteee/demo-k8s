@@ -25,19 +25,28 @@ sudo yum install -y kubectl
 
 ### kubesphere
 ```shell
-#下载 KubeKey
+# 下载 KubeKey
 export KKZONE=cn
 curl -sfL https://get-kk.kubesphere.io | VERSION=v3.0.13 sh -
 chmod +x kk
-#依赖
+# 依赖
 sudo yum install -y conntrack socat ebtables ipset
-#安装
+# 安装
 sudo ./kk create cluster [--with-kubernetes version] [--with-kubesphere version]
 sudo ./kk create cluster --with-kubernetes v1.22.12 --with-kubesphere v3.4.1
-#验证结果
+# 验证结果
 kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l 'app in (ks-install, ks-installer)' -o jsonpath='{.items[0].metadata.name}') -f
 ```
 - [访问](192.168.7.3:30880)  admin/P@88w0rd
+
+
+### helm实践
+```shell
+# add a chart repository
+helm repo add bitnami https://charts.bitnami.com/bitnami
+# 查看 chart 中的可配置选项
+helm show values bitnami/mysql
+```
 
 
 
