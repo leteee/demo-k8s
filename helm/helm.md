@@ -1,4 +1,4 @@
 ### 创建名称空间
 ```shell
-kubectl create namespace demo
+kubectl apply -f demo-namespace.yaml
 ```
