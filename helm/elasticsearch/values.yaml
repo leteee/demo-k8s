@@ -1,0 +1,4 @@
+service:
+  type: NodePort
+secret:
+  password: 1qaz@WSX
