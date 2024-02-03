@@ -1,6 +1,0 @@
-architecture: standalone
-primary:
-  service:
-    type: NodePort
-auth:
-  rootPassword: 1qaz@WSX

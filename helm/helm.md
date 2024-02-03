@@ -2,54 +2,37 @@
 ```shell
 kubectl create namespace demo
 ```
-### 更新repo
+- 更新repo
  ```shell
- helm repo update
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
  ```
+
+- 查看配置信息
+```shell
+helm show values bitnami/mysql
+```
 
 ### 安装 Nginx Ingress Controller
 ```shell
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm install nginx-ingress ingress-nginx/ingress-nginx --namespace demo -f ingress-nginx/values.yaml
+helm repo update
+helm install nginx-ingress ingress-nginx/ingress-nginx --namespace demo
 ```
 
-#### 排查问题
+- 排查问题
 ```shell
 kubectl logs -n <ingress-nginx-namespace> <nginx-ingress-controller-pod-name>
 kubectl logs -n demo nginx-ingress-ingress-nginx-controller-fdfc647-cc8xh
 ```
 
-### 安装WordPress
-```shell
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install wordpress-demo bitnami/wordpress --namespace demo -f wordpress/values.yaml
-```
-
-#### 创建ingress资源
-```shell
-kubectl apply -f wordpress/wordpress-ingress.yaml
-```
-
 ### 安装MySQL
 ```shell
-helm show values bitnami/mysql
-helm install mysql-demo bitnami/mysql --namespace demo -f mysql/values.yaml
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install mysql-demo bitnami/mysql --namespace demo --set auth.rootPassword=1qaz@WSX,architecture=standalone,primary.service.type=NodePort
 ```
 
 ### 安装redis
 ```shell
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install redis-demo bitnami/redis --namespace demo -f redis/values.yaml
-```
-
-### 安装kafka
-```shell
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install kafka-demo bitnami/kafka --namespace demo -f kafka/values.yaml
-```
-
-### 安装elasticsearch
-```shell
-helm repo add elastic https://helm.elastic.co
-helm install elasticsearch-demo elastic/elasticsearch --namespace demo -f elasticsearch/values.yaml
+helm install redis-demo bitnami/redis --namespace demo --set auth.password=1qaz@WSX,architecture=standalone,master.service.type=NodePort
 ```
