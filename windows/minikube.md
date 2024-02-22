@@ -5,7 +5,6 @@ minikube start --driver vmware
 
 ### 删除 minikube
 ```shell
-minikube stop 
 minikube delete
 ```
 
