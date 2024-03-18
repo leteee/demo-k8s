@@ -1,8 +1,10 @@
 ## [Deploying the Dashboard UI](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
-kubectl apply -f dashboard.yaml
+```
 
+```shell
+kubectl apply -f dashboard.yaml
 ```
 
 

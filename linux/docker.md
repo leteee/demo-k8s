@@ -32,16 +32,16 @@ sudo systemctl restart docker
 docker info
 ```
 ### Enable Non-Root User Access
-```shell
+```shell[docker.md](..%2Fubuntu%2Fdocker.md)
 # create the docker group on the system
 sudo groupadd -f docker
 # add the active user to the docker group
 sudo usermod -aG docker light
 # Apply the group changes to the current terminal session
-newgrp docker
+newgrp docker[centos.md](centos.md)
 # Check if the docker group is in the list of user groups
 groups
 ```
 
 
-
+[k8s.md](k8s.md)
